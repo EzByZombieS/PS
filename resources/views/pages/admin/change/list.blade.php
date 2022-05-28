@@ -5,9 +5,7 @@
                 No
             </th>
             <th class="min-w-100px">Nama User</th>
-            <th class="min-w-100px">Voucher</th>
-            <th class="min-w-100px">Harga Voucher</th>
-            <th class="min-w-100px">Status Voucher</th>
+            <th class="min-w-100px">Nama Makanan</th>
             <th class="min-w-100px">Aksi</th>
         </tr>
     </thead>
@@ -21,13 +19,7 @@
                 <span class="fw-bolder text-dark">{{ $item->us->name }}</span>
             </td>
             <td class="text pe-0">
-                <span class="fw-bolder text-dark">{{ $item->barcode }}</span>
-            </td>
-            <td class="text pe-0">
-                <span class="fw-bolder text-dark">Rp. {{ $item->price }}</span>
-            </td>
-            <td class="text pe-0">
-                <span class="fw-bolder text-dark">{{ $item->status }}</span>
+                <span class="fw-bolder text-dark">{{ $item->name_food }}</span>
             </td>
             </td>
             <td class="text pe-0">
@@ -42,10 +34,7 @@
                     </button>
                     <div class="dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" aria-labelledby="aksi">
                         <div class="menu-item px-3">
-                            <a href="javascript:;" onclick="handle_delete('{{route('admin.voucher.destroy',$item->id)}}');" class="menu-link px-3">Hapus</a>
-                        </div>
-                        <div class="menu-item px-3">
-                            <a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{route('admin.voucher.active',$item->id)}}');" class="menu-link px-3">Sudah Digunakan</a>
+                            <a href="javascript:;" onclick="handle_delete('{{route('admin.listchange.destroy',$item->id)}}');" class="menu-link px-3">Hapus</a>
                         </div>
                     </div>
                 </div>

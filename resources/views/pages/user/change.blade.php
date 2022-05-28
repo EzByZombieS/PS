@@ -17,6 +17,9 @@
     	<div class="call_section lazy pattern_2" data-bg="url(img/bg_call_section.jpg)" data-was-processed="true" style="">
 		    <div class="container clearfix">
 		    	<div class="row justify-content-center">
+					@php
+						$items = \App\Models\ListChange::where('id_users',Auth::user()->id)->whereDate('created_at',date('Y-m-d'))->count();
+					@endphp
 					@foreach ($collection as $item)
 						<div class="col-lg-6 col-md-6 text-center mt-3">
 							<form id="simpan">
@@ -25,9 +28,11 @@
 									<p>{{ $item->description }}</p>
 									<input type="text" name="food" hidden value="{{ $item->description }}">
 									<input type="text" name="list_food" hidden value="{{ $item->id_list_food }}">
-									{{-- <a id="kirim"  class="btn_1 mt-3" onclick="handle_confirm('#kirim','#simpan','{{ route('user.change.store')}}');">Pilih Menu</a> --}}
-									<a href="javascript:;" onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','POST','{{ route('user.change.store')}}');" class="menu-link px-3">inactive</a>
-								</div>
+									@if($items>=1)
+									<p id="kirim" class="menu-link px-3">anda sudah memesan</p></div>										
+									@else
+									<a href="javascript:;" id="kirim"  onclick="handle_save('#kirim','#simpan','{{route('user.change.change',$item->id)}}','POST');" class="menu-link px-3">Pilih Menu</a></div>										
+									@endif		
 							</form>
 						</div>
 					@endforeach

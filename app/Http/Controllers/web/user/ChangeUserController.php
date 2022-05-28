@@ -41,19 +41,18 @@ class ChangeUserController extends Controller
     
     public function store(Request $request)
     {
-        $change = new ListChange;
-        $change->id_users = Auth::user()->id;
-        $change->name_food = $request->food;
-        $change->id_list_food = $request->list_food;
-        $change->created_at = now();
-        $change->updated_at = now();
-        dd($change);
-        $change->save();
+        // $change = new ListChange;
+        // $change->id_users = Auth::user()->id;
+        // $change->name_food = $request->food;
+        // $change->id_list_food = $request->list_food;
+        // $change->created_at = now();
+        // $change->updated_at = now();
+        // $change->save();
 
-        return response()->json([
-            'alert' => 'success',
-            'message' => 'Menu Berhasil Berganti',
-        ]);
+        // return response()->json([
+        //     'alert' => 'success',
+        //     'message' => 'Menu Berhasil Berganti',
+        // ]);
     }
 
     
@@ -82,4 +81,21 @@ class ChangeUserController extends Controller
     {
         //
     }
-}
+
+    public function simpan($change)
+    {
+        $collection = ListAlternatife::where('id',$change)->first();
+        $change1 = new ListChange;
+        $change1->id_users = Auth::user()->id;
+        $change1->name_food = $collection->description;
+        $change1->id_list_food = $collection->id;
+        $change1->created_at = now();
+        $change1->updated_at = now();
+        $change1->save();
+
+        return response()->json([
+            'alert' => 'success',
+            'message' => 'Menu Berhasil Berganti',
+        ]);
+    }
+} 

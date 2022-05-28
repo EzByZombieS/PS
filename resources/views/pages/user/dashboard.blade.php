@@ -18,6 +18,7 @@
 		<div id="carousel-home-2">
 			<div class="owl-carousel owl-theme">
 				@foreach ($collection as $item)
+				@if($item->date>=date('Y-m-d') )
 				<div class="owl-slide cover lazy" data-bg="url({{ asset('images/products/'.$item->image_product) }})">
 					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
 						<div class="container">
@@ -35,6 +36,7 @@
 						</div>
 					</div>
 				</div>
+				@endif
 				@endforeach
 			</div>
 			<div id="icon_drag_mobile"></div>

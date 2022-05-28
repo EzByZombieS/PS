@@ -29,7 +29,7 @@
 		                <div class="main">
 		                	<div id="confirm">
 								@if($item->status == 'Sudah Digunakan')
-								<img src="data:image/png;base64,{{DNS2D::getBarcodePNG('Voucher Sudah Digunakan', 'QRCODE')}}" alt="barcode" style="width: 50%" />
+									<img src="data:image/png;base64,{{DNS2D::getBarcodePNG('Voucher Sudah Digunakan', 'QRCODE')}}" alt="barcode" style="width: 50%" />
 								@else
 									<img src="data:image/png;base64,{{DNS2D::getBarcodePNG(Str::remove('#', $item->barcode), 'QRCODE')}}" alt="barcode" style="width: 50%" />
 								@endif

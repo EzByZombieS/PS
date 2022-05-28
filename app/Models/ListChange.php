@@ -13,4 +13,8 @@ class ListChange extends Model
     {
         return $this->belongsTo(ListDay::class,'id_list_day','id');
     }
+    public function us()
+    {
+        return $this->belongsTo(User::class,'id_users','id');
+    }
 }
