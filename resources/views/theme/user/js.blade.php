@@ -23,5 +23,4 @@
     <script src="{{asset('js/confirm.js')}}"></script>
     <script src="{{asset('js/plugin.js')}}"></script>
     <script src="{{asset('js/method.js')}}"></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 

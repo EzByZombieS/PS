@@ -7,9 +7,13 @@ use App\Http\Controllers\web\auth\AuthUserController;
 use App\Http\Controllers\admin\web\ListFoodController;
 use App\Http\Controllers\web\user\ChangeUserController;
 use App\Http\Controllers\admin\auth\AuthAdminController;
+use App\Http\Controllers\admin\web\AdminCommentController;
+use App\Http\Controllers\admin\web\AdminVoucherController;
 use App\Http\Controllers\web\user\DashboardUserController;
 use App\Http\Controllers\admin\web\DashboardAdminController;
 use App\Http\Controllers\admin\web\ListAlternatifeController;
+use App\Http\Controllers\web\user\AboutUsController;
+use App\Http\Controllers\web\user\CommentController;
 
 Route::group(['domain'=>''],function(){
         
@@ -27,7 +31,9 @@ Route::group(['domain'=>''],function(){
         });
         Route::resource('home', DashboardUserController::class);
         Route::resource('change', ChangeUserController::class);
+        Route::resource('comment', CommentController::class);
         Route::get('/voucher',[VoucherController::class, 'index'])->name('voucher.index');
+        Route::get('/aboutus',[AboutUsController::class, 'index'])->name('about.index');
         
         
     });
@@ -43,5 +49,8 @@ Route::group(['domain'=>''],function(){
         Route::resource('/list-day', ListDayController::class);
         Route::resource('/list-food', ListFoodController::class);
         Route::resource('alternatife', ListAlternatifeController::class);
+        Route::resource('voucher', AdminVoucherController::class);
+        Route::resource('comment', AdminCommentController::class);
+        Route::post('voucher/{product}/active',[AdminVoucherController::class, 'active'])->name('voucher.active');
     });
 });

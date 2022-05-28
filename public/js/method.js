@@ -206,7 +206,7 @@ function handle_save(tombol, form, url, method, title){
                     $(tombol).prop("disabled", false);
                         $(tombol).html(title);
                         main_content('content_list');
-                        load_list(1);
+                        location.reload();
                 }, 2000);
             } else {
                 error_toastr(response.message);

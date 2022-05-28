@@ -20,8 +20,8 @@
             </div>
             <ul>
                 <li><a href="{{ route('user.home.index') }}">Home</a></li>
-                <li><a href="https://forms.gle/jfA9DedJiYdJQK148">Komentar</a></li>
-                <li><a href="#">Profil</a></li>
+                <li><a href="{{ route('user.comment.index') }}">Komentar</a></li>
+                <li><a href="{{ route('user.about.index') }}">Profil</a></li>
                 <li><a href="{{ route('user.voucher.index') }}">Voucher</a></li>
                 <li><a href="{{ route('user.auth.logout') }}" class="btn_top">Log Out</a></li>
             </ul>

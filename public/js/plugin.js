@@ -15,12 +15,15 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
 function loading(obj) {
     // 
 }
+
 function loaded(obj) {
     // 
 }
+
 function success_toastr(msg) {
     toastr.options = {
         "closeButton": true,
@@ -62,6 +65,7 @@ function error_toastr(msg) {
     };
     toastr.warning(msg);
 }
+
 function info_toastr(msg) {
     toastr.options = {
         "closeButton": true,
@@ -82,6 +86,7 @@ function info_toastr(msg) {
     };
     toastr.info(msg);
 }
+
 function date(obj) {
     $('#' + obj).datepicker({
         todayHighlight: true,
@@ -93,6 +98,7 @@ function date(obj) {
         endDate: '0'
     });
 }
+
 function year(obj) {
     var d = new Date();
     var n = d.getFullYear();
@@ -107,6 +113,7 @@ function year(obj) {
         endDate: 'n'
     });
 }
+
 function time_picker(obj) {
     $('#' + obj).timepicker({
         showMeridian: false,
@@ -115,20 +122,24 @@ function time_picker(obj) {
         maxHours: 16
     });
 }
+
 function date_end(obj) {
     $('#' + obj).flatpickr({
         maxDate: "today",
         dateFormat: "Y-m-d",
     });
 }
+
 function summernote(obj) {
     $('#' + obj).summernote();
 }
+
 function auto_size(obj) {
     var obj = $('#' + obj);
     autosize(obj);
     autosize.update(obj);
 }
+
 function select2(obj) {
     $('#' + obj).select2({
         width: '100%',
@@ -141,6 +152,7 @@ function select2(obj) {
         }
     });
 }
+
 function thousand(nStr) {
     nStr += '';
     x = nStr.split('.');
@@ -152,6 +164,7 @@ function thousand(nStr) {
     }
     return x1 + x2;
 }
+
 function ribuan(obj) {
     $('#' + obj).keyup(function (event) {
         if (event.which >= 37 && event.which <= 40) return;
@@ -159,7 +172,7 @@ function ribuan(obj) {
         $(this).val(function (index, value) {
             return value
                 .replace(/\D/g, "")
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         });
         var id = $(this).data("id-selector");
         var classs = $(this).data("class-selector");
@@ -169,6 +182,7 @@ function ribuan(obj) {
         $('.' + classs).val(noCommas);
     });
 }
+
 function dots(obj) {
     $('#' + obj).keyup(function (event) {
         if (event.which >= 37 && event.which <= 40) return;
@@ -186,9 +200,11 @@ function dots(obj) {
         $('.' + classs).val(noCommas);
     });
 }
+
 function image_uploader(obj) {
     let avatar = new KTImageInput(obj);
 }
+
 function print_div(div_name) {
     let print_content = document.getElementById(div_name).innerHTML;
     let original_content = document.body.innerHTML;
@@ -199,6 +215,7 @@ function print_div(div_name) {
 
     document.body.innerHTML = original_content;
 }
+
 function text_only(obj) {
     $('#' + obj).bind('keypress', function (event) {
         var regex = new RegExp("^[A-Z a-z 0-9]+$");
